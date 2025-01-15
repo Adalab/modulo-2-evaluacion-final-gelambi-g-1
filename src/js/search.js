@@ -1,27 +1,28 @@
+import './listFav';
+
 const inputSearch = document.querySelector(".js-input-search");
 const btnSearch = document.querySelector(".js-btn-search");
 
 let listSeries = [];
 let listSeriesFav = [];
 
-function renderSeriesFav () {
-
-}
-
 function handleClickFav (ev) {
     const liClicked = parseInt (ev.currentTarget.id);
     console.log(liClicked);
     const serieSelected = listSeries.find((eachSerie) => eachSerie.mal_id === liClicked);
-console.log(serieSelected)
-    const indexFavSelected = listSeriesFav.filter((serie) => serie.mal_id === liClicked)
+console.log(serieSelected);
+
+    const indexFavSelected = listSeriesFav.filter((serie) => serie.mal_id === liClicked);
     if(indexFavSelected.length === 0) {
-        listSeriesFav.push(serieSelected)
-    } 
+        listSeriesFav.push(serieSelected);
+    } else {
+        console.log("jj")
+    }
     
   renderSeries(listSeries)
 }
 
-function listenerSeries () {
+function listenerSeriesFav () {
     const allSeriesLi = document.querySelectorAll(".js-list-element");
     for (const li of allSeriesLi) {
         li.addEventListener("click", handleClickFav)
@@ -51,14 +52,14 @@ function renderSeries (list) {
         li.setAttribute("class", "list-element js-list-element");
         li.setAttribute("id", serieList.mal_id)
 
-        const article = document.createElement  ("article");
+        const article = document.createElement("article");
         li.appendChild(article);
         article.setAttribute("class", "list-direction")
 
-        const image = document.createElement    ("img"); 
-        image.setAttribute("src", serieList.    images.jpg.image_url);
-        const title = document.createElement    ("p");
-        const titleP = document.createTextNode  (serieList.title);
+        const image = document.createElement  ("img"); 
+        image.setAttribute("src", serieList.images.jpg.image_url);
+        const title = document.createElement ("p");
+        const titleP = document.createTextNode (serieList.title);
         title.appendChild(titleP)
         article.append(image, titleP);
 
@@ -66,15 +67,8 @@ function renderSeries (list) {
         image.setAttribute("src", "https://placehold.co/220x310?text=Imagen+no+disponible")
         };
 
-        
-        const serieFav = listSeriesFav.find((serieF) => serieF.id === listSeries.mal_id);
-        
-        let fav = serieFav ? "favorite" : "";
-            if(fav) {
-                li.classList.add("favorite");
-            }     
-        listenerSeries();    
-  
+        listenerSeriesFav();    
+
        
 }};
 
