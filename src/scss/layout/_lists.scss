@@ -13,6 +13,11 @@
     grid-column-start: auto;
 }
 
-// .hidden {
-//     display: none;
-// }
+.hidden {
+    display: none;
+}
+
+.favorite {
+    border: 3px solid blueviolet;
+    color: blueviolet;
+}

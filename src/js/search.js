@@ -4,17 +4,21 @@ const btnSearch = document.querySelector(".js-btn-search");
 let listSeries = [];
 let listSeriesFav = [];
 
+function renderSeriesFav () {
+
+}
+
 function handleClickFav (ev) {
-    const liClicked = ev.currentTarget.id;
-    const serieSelected = listSeries.find((eachSerie) => eachSerie.id === liClicked);
-
-    const indexFavSelected = listSeriesFav.filter((serie) => serie.id === liClicked)
-    if(indexFavSelected !== 0) {
+    const liClicked = parseInt (ev.currentTarget.id);
+    console.log(liClicked);
+    const serieSelected = listSeries.find((eachSerie) => eachSerie.mal_id === liClicked);
+console.log(serieSelected)
+    const indexFavSelected = listSeriesFav.filter((serie) => serie.mal_id === liClicked)
+    if(indexFavSelected.length === 0) {
         listSeriesFav.push(serieSelected)
-    }
+    } 
     
-        
-
+  renderSeries(listSeries)
 }
 
 function listenerSeries () {
@@ -60,18 +64,31 @@ function renderSeries (list) {
 
         if(serieList.images.jpg.image_url === "https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png") {
         image.setAttribute("src", "https://placehold.co/220x310?text=Imagen+no+disponible")
-    }
-    listenerSeries ()
+        };
+
+        
+        const serieFav = listSeriesFav.find((serieF) => serieF.id === listSeries.mal_id);
+        
+        let fav = serieFav ? "favorite" : "";
+            if(fav) {
+                li.classList.add("favorite");
+            }     
+        listenerSeries();    
+  
+       
 }};
+
+renderSeries(listSeries)  
 
 //funcion de buscar las series
 function handleClickSearch (ev) {
     ev.preventDefault();
-    const inputSearchValue = inputSearch.value;
-    if (inputSearchValue === "") {
-        const span = document.querySelector(".js-span-no-title");
+    const inputSearchValue = inputSearch.value; 
+    const span = document.querySelector(".js-span-no-title");
+    if (inputSearchValue === "") {//aquí podria afegir si el titol no es troba
         span.innerHTML = `No hay nada`
     } else {
+        span.innerHTML = ""
         getDataApi(inputSearchValue)
     }
     
