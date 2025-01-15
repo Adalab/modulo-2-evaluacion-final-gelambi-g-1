@@ -1,0 +1,18 @@
+.list-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.list-element {
+    list-style: none;
+}
+
+.list-direction {
+    display: grid;
+    grid-column-start: auto;
+}
+
+// .hidden {
+//     display: none;
+// }
