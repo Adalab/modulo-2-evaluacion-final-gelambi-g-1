@@ -131,6 +131,9 @@ function handleClickSearch (ev) {
 
 btnSearch.addEventListener("click", handleClickSearch);
 
+
+//no es guarda bé la informació, em surt quan carrega un element que no he buscat i no es guarda la llista de favs
+//creamos dos constantes para guardar la información de las dos listas
 const dataSeriesLS = localStorage.getItem("seriesServer");
 const favDataSeriesLS = localStorage.getItem("seriesFav");
 if(dataSeriesLS) {
