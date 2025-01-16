@@ -14,7 +14,8 @@ function renderSeriesFavorites () {
                 <img src="${serie.images.jpg.image_url}" alt="">
                 <p>${serie.title}</p>
             </article>
-        </li>`
+        </li>
+        <input class="js-resetFav" type="submit" value="X"/>`
         };
 };
 

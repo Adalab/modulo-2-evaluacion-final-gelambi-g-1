@@ -5,3 +5,9 @@ btnReset.addEventListener('click', () =>{
     //recargar la página
     location.reload();
 });
+
+resetSerieFav.addEventListener("click", () => {
+    const resetSerie = listSeriesFav.splice(1, 1);
+    resetSerie = [];
+})
+//recorrer array, com amb la llista
