@@ -3,6 +3,7 @@
 import './variables.js';
 import './listResult.js';
 import './listFav.js';
-import './search.js';
+import './btn-search.js';
 import './sendDataApi.js';
 import './localStorage.js';
+import './btn-reset.js';
