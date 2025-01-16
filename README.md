@@ -8,6 +8,7 @@ En el proyecto se ha hecho una pequeña maquetación en el HTML y en SCC, para p
 Se ha trabajado con addEventListener, para escuchar los eventos "click"; se ha usado bucles for of
 
 **Partials**
+
 HTML: se ha hecho un partial para cada sección.
 CSS: sólo hay un partial porque no hay mucho estilo.
 JS: se ha hecho un partial para todas las variables, para hacer la petición de información a la API, para guardar la información en el localStorage y para las diferentes acciones, intentando tener el mínimo de codigo en cada partial. 
