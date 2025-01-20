@@ -21,11 +21,23 @@ function renderSeries (list) {
         const title = document.createElement ("p");
         const titleP = document.createTextNode (serieList.title);
         title.appendChild(titleP)
-        article.append(image, title);
+        const p = document.createElement ("p");
+        let textNote = "";
+         if (serieList.score >= 7) {
+         textNote = `${serieList.score}. Recomendada`
+        } else {
+          textNote = `${serieList.score}`
+        }
+        const noteSerie = document.createTextNode (textNote); 
+        p.appendChild(noteSerie);
+        article.append(image, title, p);
 
         //hacemos la comparación de las urls de las imagenes, como sabemos que la primera url se rompe, le decimos que pinte otra
         if(serieList.images.jpg.image_url === "https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png") {
         image.setAttribute("src", "https://placehold.co/220x310?text=Imagen+no+disponible");
         };
+
+       
+
   listenerSeriesFav();
 }};

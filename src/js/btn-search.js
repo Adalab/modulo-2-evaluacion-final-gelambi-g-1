@@ -16,3 +16,10 @@ function handleClickSearch (ev) {
 
 btnSearch.addEventListener("click", handleClickSearch);
 
+
+function handleClickSeriesFav () {
+    spanFav.innerHTML = `Tienes ${listSeriesFav.length} series favoritas`
+    console.log(`Tienes ${listSeriesFav.length} series favoritas`)
+}
+
+btnLog.addEventListener("click", handleClickSeriesFav)
